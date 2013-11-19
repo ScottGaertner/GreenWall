@@ -264,6 +264,79 @@ local function GwStringHash(str)
     return crc;
 end
 
+
+--- Encode an RFC 4648 Base64 string.
+-- @param str The input byte string.
+-- @return A Base64 encoded string.
+function GwBase64Encode(str)
+
+    local alphabet = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H',
+                      'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P',
+                      'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X',
+                      'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f',
+                      'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n',
+                      'o', 'p', 'q', 'r', 's', 't', 'u', 'v',
+                      'w', 'x', 'y', 'z', '0', '1', '2', '3',
+                      '4', '5', '6', '7', '8', '9', '+', '/'};
+    local enc = '';
+    
+    if str == nil then
+        str = '';
+    end
+
+    while str:len() > 0 do
+        -- Split the string.
+        local q = string.sub(str, 1, 3);
+        str = string.sub(str, 4);
+        
+        -- Pad the quantum. 
+        local n = q:len();
+        q = string.sub(q .. '\0\0', 1, 3);
+        
+        -- Convert the quantum to an integer.
+        local qi = 0;
+        for i = 1, 3 do
+            qi = qi + (string.byte(string.sub(q, i, i)) * (2 ^ (24 - (i * 8))));
+        end
+        
+        -- Extract 6-bit bytes.
+        local vec = {0, 0, 0, 0};
+        for i = 1, 4 do 
+            vec[i] = bit.band(bit.rshift(qi, 24 - (i * 6)), 0x3F);
+        end
+        
+        -- Convert 6-bit bytes to characters and append them to the encoded string.
+        for i = 1, n + 1 do
+            enc = enc .. alphabet[vec[i] + 1];
+        end
+        
+        -- Pad the result.
+        if n == 1 then
+            enc = enc .. '==';
+        elseif n == 2 then
+            enc = enc .. '=';
+        end
+    end
+
+    return enc;
+end
+
+
+--- Decode a RFC 4648 Base64 string.
+-- @param str The input Base64 encoded string.
+-- @return A decoded byte string.
+local function GwBase64Decode(str)
+
+    local dec = '';
+
+    if str == nil then
+        str = '';
+    end
+    
+    return dec;
+end
+
+
 --- Check if a connection exists to the common chat.
 -- @param chan A channel control table.
 -- @return True if connected, otherwise false.
