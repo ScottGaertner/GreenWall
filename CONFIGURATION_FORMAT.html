@@ -410,6 +410,29 @@ colon separated list of arguments.</p>
 <pre><code>GWa:secretSquirrels:y7Gl5058j68f
 </code></pre>
 
+<h3>Addon Channel</h3>
+
+<p>This specifies a custom chat channel to use for exchanging addon communication with other co-guilds.</p>
+
+<p>Op Code: x</p>
+
+<p>Arguments:</p>
+
+<ul>
+<li>Channel Name</li>
+<li>Channel Password</li>
+</ul><p>Example:</p>
+
+<pre><code>GWx:botTalk:yqvfgbkt54sz
+</code></pre>
+
+<p>As a special case, the arguments can be left null to have addon communication exchanged via the same channel used for guild chat.  This allows you to conserve custom channels, but prevents guild members from completely disabling addon message processing via the <strong>addons</strong> option.</p>
+
+<p>Example:</p>
+
+<pre><code>GWx::
+</code></pre>
+
 <h3>Substitution Variable</h3>
 
 <p>This specifies a variable that will can be used in the <em>peer co-guild</em> directives to reduce the size of the configuration.</p>

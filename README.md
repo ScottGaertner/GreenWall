@@ -123,10 +123,14 @@ rank [ on | off ]
 > Default: off 
 
 
-### Officer Options ###
+### Extension Options ###
 
 ochat [ on | off ]
 > Show bridge officer chat between the co-guilds. This only works for members who have privileges to view officer notes.
+> Default: off 
+
+addons [ on | off ]
+> Allow sending and receiving of addon hidden channel communication between co-guilds.
 > Default: off 
 
 

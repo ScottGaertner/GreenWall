@@ -76,6 +76,27 @@ Example:
     GWa:secretSquirrels:y7Gl5058j68f
 
 
+### Addon Channel ###
+
+This specifies a custom chat channel to use for exchanging addon communication with other co-guilds.
+
+Op Code: x
+
+Arguments:
+- Channel Name
+- Channel Password
+
+Example:
+
+    GWx:botTalk:yqvfgbkt54sz
+
+As a special case, the arguments can be left null to have addon communication exchanged via the same channel used for guild chat.  This allows you to conserve custom channels, but prevents guild members from completely disabling addon message processing via the **addons** option.
+
+Example:
+
+    GWx::
+
+
 ### Substitution Variable ###
 
 This specifies a variable that will can be used in the *peer co-guild* directives to reduce the size of the configuration.
