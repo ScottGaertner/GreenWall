@@ -1051,6 +1051,10 @@ function GreenWallInterfaceFrame_SetDefaults(self)
     GreenWall.ochat = gwDefaults['ochat']['default'];
 end
 
+function WhoFrameGreenWallWhoButton_OnClick()
+    GwWrite("PING!");
+end
+
 
 --[[-----------------------------------------------------------------------
 
@@ -1248,7 +1252,24 @@ function GreenWall_OnLoad(self)
     self.cancel = function (self) return; end;
     self.default = function (self) GreenWallInterfaceFrame_SetDefaults(self); end;
     InterfaceOptions_AddCategory(self);
-        
+
+    --
+    -- Add a button to the Who frame.
+    --
+    local button = CreateFrame("Button", "WhoFrameGreenWallWhoButton", WhoFrame, "UIPanelButtonTemplate");
+    button:SetHeight(22);
+    button:SetWidth(120);
+    button:SetPoint("BOTTOMRIGHT", -6, 4);
+    button:SetText("Confederation")
+    button:SetScript("OnClick", WhoFrameGreenWallWhoButton_OnClick)
+    
+    WhoFrameGroupInviteButton:SetPoint("RIGHT", "WhoFrameGreenWallWhoButton", "LEFT", 0, 0);
+    WhoFrameGroupInviteButton:SetText("Invite");
+    WhoFrameGroupInviteButton:SetSize(69, 22);
+    WhoFrameAddFriendButton:SetText("Friend");
+    WhoFrameAddFriendButton:SetSize(69, 22);
+    WhoFrameWhoButton:SetSize(69, 22);        
+
 end
 
 
