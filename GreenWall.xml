@@ -142,4 +142,42 @@ C:\Projects\WoW\Bin\Interface\FrameXML\UI.xsd">
 			</CheckButton>
 		</Frames>
 	</Frame>
+ 
+    <Frame name="GreenWallWhoFrame" parent="FriendsFrame" setAllPoints="true" hidden="true">
+        <Layers>
+            <Layer level="ARTWORK">
+                <FontString name="GreenWallWhoFrameTotals" inherits="GameFontNormalSmall">
+                    <Size>
+                        <AbsDimension x="298" y="16"/>
+                    </Size>
+                    <Anchors>
+                        <Anchor point="BOTTOM">
+                            <Offset>
+                                <AbsDimension x="-10" y="127"/>
+                            </Offset>
+                        </Anchor>
+                    </Anchors>
+                </FontString>
+            </Layer>
+        </Layers>
+        <Scripts>
+            <OnLoad>GreenWallWhoFrame_OnLoad(self);</OnLoad>
+        </Scripts>
+        <Frames>
+            <Button name="FriendsFrameTab5" inherits="FriendsFrameTabTemplate" parent="FriendsFrame" id="5" text="GW Who">
+                <Anchors>
+                    <Anchor point="LEFT" relativeTo="FriendsFrameTab4" relativePoint="RIGHT">
+                        <Offset>
+                            <AbsDimension x="-14" y="0"></AbsDimension>
+                        </Offset>
+                    </Anchor>
+                </Anchors>
+                <Scripts>
+                    <OnLoad function="FriendsFrame_Update"/>
+                    <OnEvent function="FriendsFrame_Update"/>
+                </Scripts>
+            </Button>
+        </Frames>
+    </Frame>
+ 
 </Ui>
