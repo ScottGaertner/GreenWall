@@ -140,7 +140,7 @@ function GwConfig:load()
         end
         return estr
     end
-    
+
     local function get_gm_officer_note()
         if not gw.IsOfficer() then
             return
@@ -198,11 +198,15 @@ function GwConfig:load()
     --
     -- Check configuration version
     --
-    if strmatch(info, 'GWc=".*"') then
-        gw.Error('Guild configuration uses a format not supported by this version.')
-    end
-    if strmatch(info, 'GW:?c:') then
-        self.cversion = 1
+    if self.cpref == 0 then
+        if strmatch(info, 'GWc=".*"') then
+            gw.Error('Guild configuration uses a format not supported by this version.')
+        end
+        if strmatch(info, 'GW:?c:') then
+            self.cversion = 1
+        end
+    else
+        self.cversion = cpref
     end
 
     if self.cversion == 1 then
