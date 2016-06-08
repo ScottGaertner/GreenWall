@@ -146,7 +146,6 @@ C:\Projects\WoW\Bin\Interface\FrameXML\UI.xsd">
           			</OnValueChanged>
 				</Scripts>
 			</Slider>
-
 			<CheckButton name="$parentOptionOfficerChat" inherits="InterfaceOptionsCheckButtonTemplate">
 				<Anchors>
 					<Anchor point="TOPLEFT" relativeTo="$parentOptionJoinDelay"
