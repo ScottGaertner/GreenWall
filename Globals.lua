@@ -69,7 +69,10 @@ gw.option = {
     redact          = { default=true,
                         desc="obfuscate sensitive data in debug output" },
     joindelay       = { default=30, min=0, max=120, step=1,
-                        desc="channel join delay" }
+                        desc="channel join delay" },
+    -- Development switch to force preferred configuration version.
+    cpref           = { default=0, min=0, max=2,
+                        desc="force the configuration version" }
 }
 
 gw.usage = [[
