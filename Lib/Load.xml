@@ -2,5 +2,7 @@
     <Script file="LibStub.lua"/>
     <Script file="Base64BCA.lua"/>
     <Script file="CRC16-CCITT.lua"/>
+    <Script file="SHA256.lua"/>
+    <Script file="Salsa20.lua"/>
     <Script file="SemanticVersion.lua"/>
 </Ui>
