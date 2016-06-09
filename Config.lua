@@ -202,7 +202,7 @@ function GwConfig:load()
     --
     -- Check configuration version
     --
-    if self.cpref == 0 then
+    if GreenWall.cpref == 0 then
         if strmatch(info, 'GWc=".*"') then
             gw.Error('Guild configuration uses a format not supported by this version.')
         end
@@ -210,7 +210,7 @@ function GwConfig:load()
             self.cversion = 1
         end
     else
-        self.cversion = cpref
+        self.cversion = GreenWall.cpref
     end
 
     if self.cversion == 1 then
