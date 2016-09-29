@@ -140,7 +140,7 @@ function GwConfig:load()
         end
         return estr
     end
-    
+
     local function trim(s)
         return string.gsub(s, '^%s*(.-)%s*$', '%1')
     end
